@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+</head>
+<body>
+    <div class="chatbox">
+        <h1>Ask the AI</h1>
+        <form action="{{ url_for('chat') }}" method="post" id="chat-form">
+            <textarea name="question" placeholder="Type your question here..." required></textarea>
+            <br>
+            <input type="submit" value="Ask">
+        </form>
+        
+        {% if thinking %}
+          <div class="response-box thinking">AI is thinking...</div>
+        {% endif %}
+        
+        {% if ai_answer %}
+          <div class="response-box"><strong>AI Answer:</strong><br>{{ ai_answer }}</div>
+        {% endif %}
+    </div>
+</body>
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</html>

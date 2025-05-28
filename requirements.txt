@@ -1,0 +1,7 @@
+hdbcli
+sqlalchemy
+sqlalchemy-hana
+python-dotenv
+pandas
+ai_core_sdk
+flask

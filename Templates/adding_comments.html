@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Metadata Viewer</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 2em; background: #f7f7f7; }
+        .view-box { background: #fff; padding: 1em; margin-bottom: 1em; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        textarea { width: 100%; padding: 0.5em; margin-top: 0.5em; }
+        input[type=submit] { padding: 0.7em 2em; font-size: 1em; }
+    </style>
+</head>
+<body>
+    <h1>Metadata Overview & Comments</h1>
+    <form action="/save_comments" method="post">
+        {% for view, data in metadata.items() %}
+            <div class="view-box">
+                <h2>{{ view }}</h2>
+                <ul>
+                    {% for column in data.columns %}
+                        <li>{{ column.name }} ({{ column.type }})</li>
+                    {% endfor %}
+                </ul>
+                <label for="comment_{{ view }}">Your Comment:</label>
+                <textarea name="comment_{{ view }}" rows="3" placeholder="Enter comment for {{ view }}"></textarea>
+            </div>
+        {% endfor %}
+        <input type="submit" value="Submit Comments">
+    </form>
+</body>
+</html>
