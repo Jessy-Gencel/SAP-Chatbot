@@ -9,7 +9,7 @@ Follow these steps to get the project up and running:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Jessy-Gencel/SAP-Chatbot.git
 ```
 
 ### Step 2: Open the cloned folder using Visual Studio Code.
